@@ -28,7 +28,8 @@
 
 #ifndef WIN32
 // Include FLTK
-#include "FL/fl_ask.H"
+/* #include "FL/fl_ask.H" */
+#include <unistd.h>
 #endif
 
 #define _UNICODE
@@ -112,7 +113,7 @@ namespace hpl {
 
 		if(mpFile)
 		{
-			fprintf(mpFile, asMessage.c_str());
+			fprintf(mpFile, "%s", asMessage.c_str());
 			fflush(mpFile);
 		}
 	}
@@ -213,7 +214,7 @@ namespace hpl {
 		if (fmt == NULL)
 			return;
 		va_start(ap, fmt);
-			vsprintf(text, fmt, ap);
+		vsnprintf(text, sizeof(text), fmt, ap);
 		va_end(ap);
 
 		tString sMess = "FATAL ERROR: ";
@@ -234,7 +235,7 @@ namespace hpl {
 		if (fmt == NULL)
 			return;
 		va_start(ap, fmt);
-			vsprintf(text, fmt, ap);
+		vsnprintf(text, sizeof(text), fmt, ap);
 		va_end(ap);
 
 		tString sMess = "ERROR: ";
@@ -249,7 +250,7 @@ namespace hpl {
 		if (fmt == NULL)
 			return;
 		va_start(ap, fmt);
-			vsprintf(text, fmt, ap);
+		vsnprintf(text, sizeof(text), fmt, ap);
 		va_end(ap);
 
 		tString sMess = "WARNING: ";
@@ -264,7 +265,7 @@ namespace hpl {
 		if (fmt == NULL)
 			return;
 		va_start(ap, fmt);
-		vsprintf(text, fmt, ap);
+		vsnprintf(text, sizeof(text), fmt, ap);
 		va_end(ap);
 
 		tString sMess = "";
@@ -301,7 +302,7 @@ namespace hpl {
 		if (fmt == NULL)
 			return;
 		va_start(ap, fmt);
-		vsprintf(text, fmt, ap);
+		vsnprintf(text, sizeof(text), fmt, ap);
 		va_end(ap);
 
 		tString sMess = "";
@@ -446,10 +447,7 @@ namespace hpl {
 
 		MessageBox( NULL, sMess.c_str(), asCaption, lType );
 		#else
-		sMess += asCaption;
-		sMess +=_W("\n\n");
-		sMess += text;
-		fl_alert("%ls\n\n%ls",asCaption,text);
+        fprintf(stderr, "%ls\n\n%ls", asCaption, text);
 		#endif
 	}
 
@@ -724,7 +722,7 @@ namespace hpl {
 		else if( msg->type == asMSGTYPE_INFORMATION )
 			type = "INFO";
 
-		sprintf(sMess,"%s (%d, %d) : %s : %s\n", msg->section, msg->row, msg->col, type.c_str(), msg->message);
+		snprintf(sMess, sizeof(sMess), "%s (%d, %d) : %s : %s\n", msg->section, msg->row, msg->col, type.c_str(), msg->message);
 
 		msMessage += sMess;
 	}
