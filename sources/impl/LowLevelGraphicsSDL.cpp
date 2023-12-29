@@ -33,7 +33,7 @@
 #include "impl/SDLBitmap2D.h"
 #include "impl/SDLFontData.h"
 #include "impl/SDLTexture.h"
-#include "impl/CGProgram.h"
+//#include "impl/CGProgram.h"
 #include "system/LowLevelSystem.h"
 #include "impl/VertexBufferOGL.h"
 #include "impl/VertexBufferVBO.h"
@@ -124,8 +124,6 @@ namespace hpl {
 		}
 
 		//Init extra stuff
-		InitCG();
-
 		TTF_Init();
 	}
 
@@ -147,7 +145,6 @@ namespace hpl {
 		hplDelete(mpPixelFormat);
 
 		//Exit extra stuff
-		ExitCG();
 		TTF_Quit();
 	}
 
@@ -628,7 +625,8 @@ namespace hpl {
 
 	iGpuProgram* cLowLevelGraphicsSDL::CreateGpuProgram(const tString& asName, eGpuProgramType aType)
 	{
-		return hplNew( cCGProgram, (asName,mCG_Context, aType) );
+		//return hplNew( cCGProgram, (asName,mCG_Context, aType) );
+        return nullptr;
 	}
 
 	//-----------------------------------------------------------------------
@@ -2075,20 +2073,6 @@ namespace hpl {
 		case eStencilOp_DecrementWrap:	return GL_DECR_WRAP_EXT;
 		}
 		return 0;
-	}
-
-	//-----------------------------------------------------------------------
-
-	void cLowLevelGraphicsSDL::InitCG()
-	{
-		mCG_Context = cgCreateContext();
-	}
-
-	//-----------------------------------------------------------------------
-
-	void cLowLevelGraphicsSDL::ExitCG()
-	{
-		cgDestroyContext(mCG_Context);
 	}
 
 	//-----------------------------------------------------------------------

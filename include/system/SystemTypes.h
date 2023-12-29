@@ -166,7 +166,7 @@ namespace hpl {
 		{
 			char buff[256];
 
-			sprintf(buff,"%d/%d-%d %d:%d:%d",month_day,month,1900+year,hours, minutes, seconds);
+			snprintf(buff,sizeof(buff),"%d/%d-%d %d:%d:%d",month_day,month,1900+year,hours, minutes, seconds);
 
 			return buff;
 		}

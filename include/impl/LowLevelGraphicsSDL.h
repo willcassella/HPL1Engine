@@ -21,8 +21,8 @@
 
 #include <GL/GLee.h>
 
-#include <Cg/cg.h>
-#include <Cg/cgGL.h>
+/* #include <Cg/cg.h> */
+/* #include <Cg/cgGL.h> */
 
 #include <SDL/SDL.h>
 #include <SDL/SDL_ttf.h>
@@ -231,7 +231,7 @@ namespace hpl {
 
 		iBitmap2D* CreateBitmap2DFromSurface(SDL_Surface* apSurface,const tString& asType);
 
-		CGcontext GetGC_Context(){ return mCG_Context;}
+		/* CGcontext GetGC_Context(){ return mCG_Context;} */
 
 		void SetupGL();
 
@@ -292,7 +292,7 @@ namespace hpl {
 		iTexture* mpCurrentTexture[MAX_TEXTUREUNITS];
 
 		//CG Compiler Variables
-		CGcontext mCG_Context;
+		/* CGcontext mCG_Context; */
 
 		//Multisample
 		void CheckMultisampleCaps();
