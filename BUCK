@@ -238,7 +238,7 @@ cxx_library(
         "//HPL1Engine/include:headers",
     ],
     deps = [
-        "//newton-dynamics-2.36/coreLibrary_200/source/newton:newton",
+        "//newton-dynamics-2.36/newton:newton",
     ],
     preprocessor_flags = [
         "-DGL_SILENCE_DEPRECATION",
