@@ -43,9 +43,8 @@ namespace hpl {
 		cCollideShapeNewton *pShapeNewton = static_cast<cCollideShapeNewton*>(apShape);
 
 		mpNewtonWorld = pWorldNewton->GetNewtonWorld();
-        // TODO: Maybe use an identity matrix instead of NULL here?
 		mpNewtonBody = NewtonCreateBody(pWorldNewton->GetNewtonWorld(),
-										pShapeNewton->GetNewtonCollision(), NULL);
+										pShapeNewton->GetNewtonCollision(), &cMatrixf::Identity.m[0][0]);
 
 		mpCallback = hplNew( cPhysicsBodyNewtonCallback, () );
 
