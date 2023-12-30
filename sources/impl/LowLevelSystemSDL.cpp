@@ -20,15 +20,12 @@
 //Use this to check for memory leaks!
 
 #ifdef WIN32
-#pragma comment(lib, "angelscript.lib")
 #define UNICODE
 #include <windows.h>
 #include <shlobj.h>
 #endif
 
 #ifndef WIN32
-// Include FLTK
-/* #include "FL/fl_ask.H" */
 #include <unistd.h>
 #endif
 
@@ -47,7 +44,6 @@
 
 #include "SDL/SDL.h"
 
-#include "impl/stdstring.h"
 #include "impl/scriptstring.h"
 
 #include "system/String.h"
@@ -167,11 +163,7 @@ namespace hpl {
 		mpScriptOutput = hplNew( cScriptOutput, () );
 		mpScriptEngine->SetMessageCallback(asMETHOD(cScriptOutput,AddMessage), mpScriptOutput, asCALL_THISCALL);
 
-#ifdef AS_MAX_PORTABILITY
 		RegisterScriptString(mpScriptEngine);
-#else
-		RegisterStdString(mpScriptEngine);
-#endif
 
 		mlHandleCount = 0;
 

@@ -8,8 +8,6 @@
 #include <hpl.h>
 #include <impl/SDLGameSetup.h>
 
-#pragma comment(lib, "HPL.lib")
-
 #include "SceneCamera.h"
 
 

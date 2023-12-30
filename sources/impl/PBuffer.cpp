@@ -188,7 +188,6 @@ namespace hpl {
 		return wglMakeCurrent(mDeviceContext, mGLContext);
 		#else
 		return 0;
-		//return glXMakeCurrent(dpy, gPBuffer, glCtx);
 		#endif
 	}
 

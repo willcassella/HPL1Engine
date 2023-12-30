@@ -19,7 +19,7 @@
 #ifndef HPL_P_BUFFER_H
 #define HPL_P_BUFFER_H
 
-#include <GL/GLee.h>
+#include <GL/glew.h>
 #include <vector>
 
 
@@ -45,10 +45,6 @@ namespace hpl {
 		HDC         mDeviceContext;
 		HGLRC       mGLContext;
 		HPBUFFERARB mPBuffer;
-		#elif defined(__linux__)
-		Display *gDpy;
-		GLXContext glCtx;
-		GLXPbuffer gPBuffer;
 		#endif
 
 		int mlWidth;

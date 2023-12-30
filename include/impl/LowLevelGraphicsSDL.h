@@ -19,7 +19,7 @@
 #ifndef HPL_LOWLEVELGRAPHICS_SDL_H
 #define HPL_LOWLEVELGRAPHICS_SDL_H
 
-#include <GL/GLee.h>
+#include <GL/glew.h>
 
 /* #include <Cg/cg.h> */
 /* #include <Cg/cgGL.h> */
@@ -248,10 +248,6 @@ namespace hpl {
 			HGLRC mGLContext;
 			HDC   mDeviceContext;
 			HINSTANCE mhKeyTrapper;
-		#elif defined(__linux__)
-			Display *gDpy;
-			GLXContext glCtx;
-			GLXPbuffer gPBuffer;
 		#endif
 
 		//Gamma

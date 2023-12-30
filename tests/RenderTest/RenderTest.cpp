@@ -12,12 +12,6 @@
 
 #include "../Common/SimpleCamera.h"
 
-//#ifdef DEBUG
-//#pragma comment(lib, "HPL.lib")
-//#else
-//#pragma comment(lib, "HPLd.lib")
-//#endif
-
 using namespace hpl;
 
 cGame *gpGame=NULL;

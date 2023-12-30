@@ -21,8 +21,6 @@
 
 #include "PVCamera.h"
 
-//#pragma comment(lib, "HPL.lib")
-
 using namespace hpl;
 
 

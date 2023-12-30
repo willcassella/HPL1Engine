@@ -13,9 +13,6 @@
 
 #include <conio.h>
 
-#pragma comment(lib, "libogg.lib")
-#pragma comment(lib, "libtheora.lib")
-
 #include <theora/theora.h>
 
 

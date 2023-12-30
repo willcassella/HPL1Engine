@@ -21,8 +21,6 @@
 
 #include "MVCamera.h"
 
-//#pragma comment(lib, "HPL.lib")
-
 using namespace hpl;
 
 #ifdef WIN32
