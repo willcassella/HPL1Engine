@@ -237,13 +237,15 @@ cxx_library(
     exported_deps = [
         "//HPL1Engine/include:headers",
     ],
+    deps = [
+        "//newton-dynamics-2.36/coreLibrary_200/source/newton:newton",
+    ],
     preprocessor_flags = [
         "-DGL_SILENCE_DEPRECATION",
     ],
     compiler_flags = [
         "-I./angelscript/include",
         "-I./OALWrapper/include",
-        "-I./newton-dynamics-2.36/coreLibrary_200/source/newton",
         "-isystem",
         "/opt/homebrew/include",
     ],
