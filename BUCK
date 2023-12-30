@@ -275,6 +275,7 @@ cxx_library(
             "-lSDL",
             "-lSDL_ttf",
             "-lSDL_image",
+            "-lGLEW",
             "-ltheora",
             "-logg",
             "-framework",
