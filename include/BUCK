@@ -1,5 +1,6 @@
 cxx_library(
     name = "headers",
+    visibility = ["PUBLIC"],
     exported_headers = [
         "GL/GLee.h",
         "ai/AI.h",
@@ -275,7 +276,5 @@ cxx_library(
         "system/SystemTypes.h",
     ],
     header_namespace = "",
-    visibility = [
-        "PUBLIC",
-    ],
+    link_style = "static",
 )

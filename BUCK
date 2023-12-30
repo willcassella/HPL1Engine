@@ -1,5 +1,6 @@
 cxx_library(
     name = "HPL1Engine",
+    visibility = ["PUBLIC"],
     srcs = [
         "sources/ai/AI.cpp",
         "sources/ai/AINodeContainer.cpp",
@@ -236,8 +237,6 @@ cxx_library(
     ],
     exported_deps = [
         "//HPL1Engine/include:headers",
-    ],
-    deps = [
         "//newton-dynamics-2.36/newton:newton",
         "//OALWrapper:OALWrapper",
         "//angelscript:angelscript",
@@ -249,7 +248,7 @@ cxx_library(
         "-isystem",
         "/opt/homebrew/include",
     ],
-    linker_flags = [
+    exported_linker_flags = [
         "-L/opt/homebrew/lib",
         "-lSDLmain",
         "-lSDL",
@@ -262,7 +261,5 @@ cxx_library(
         "-framework",
         "OpenGL",
     ],
-    visibility = [
-        "PUBLIC",
-    ],
+    link_style = "static",
 )
