@@ -240,12 +240,12 @@ cxx_library(
     deps = [
         "//newton-dynamics-2.36/newton:newton",
         "//OALWrapper:OALWrapper",
+        "//angelscript:angelscript",
     ],
     preprocessor_flags = [
         "-DGL_SILENCE_DEPRECATION",
     ],
     compiler_flags = [
-        "-I./angelscript/include",
         "-isystem",
         "/opt/homebrew/include",
     ],
