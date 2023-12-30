@@ -1,3 +1,6 @@
+load("//defs.bzl", "global_compiler_flags")
+load("//defs.bzl", "global_linker_flags")
+
 cxx_library(
     name = "headers",
     visibility = ["PUBLIC"],
@@ -276,5 +279,7 @@ cxx_library(
         "system/SystemTypes.h",
     ],
     header_namespace = "",
+    compiler_flags = global_compiler_flags,
+    linker_flags = global_linker_flags,
     link_style = "static",
 )

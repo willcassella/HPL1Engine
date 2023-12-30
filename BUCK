@@ -1,3 +1,6 @@
+load("//defs.bzl", "global_compiler_flags")
+load("//defs.bzl", "global_linker_flags")
+
 cxx_library(
     name = "HPL1Engine",
     visibility = ["PUBLIC"],
@@ -244,7 +247,7 @@ cxx_library(
     preprocessor_flags = [
         "-DGL_SILENCE_DEPRECATION",
     ],
-    compiler_flags = [
+    compiler_flags = global_compiler_flags + [
         "-isystem",
         "/opt/homebrew/include",
     ],
@@ -261,5 +264,6 @@ cxx_library(
         "-framework",
         "OpenGL",
     ],
+    linker_flags = global_linker_flags,
     link_style = "static",
 )
