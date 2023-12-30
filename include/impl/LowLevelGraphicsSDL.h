@@ -231,8 +231,6 @@ namespace hpl {
 
 		iBitmap2D* CreateBitmap2DFromSurface(SDL_Surface* apSurface,const tString& asType);
 
-		/* CGcontext GetGC_Context(){ return mCG_Context;} */
-
 		void SetupGL();
 
 		GLenum GetGLTextureTargetEnum(eTextureTarget aType);
@@ -286,9 +284,6 @@ namespace hpl {
 
 		//Texture
 		iTexture* mpCurrentTexture[MAX_TEXTUREUNITS];
-
-		//CG Compiler Variables
-		/* CGcontext mCG_Context; */
 
 		//Multisample
 		void CheckMultisampleCaps();

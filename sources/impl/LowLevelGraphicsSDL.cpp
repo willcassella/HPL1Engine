@@ -25,7 +25,7 @@
 #include "impl/SDLBitmap2D.h"
 #include "impl/SDLFontData.h"
 #include "impl/SDLTexture.h"
-//#include "impl/CGProgram.h"
+#include "impl/GLSLProgram.h"
 #include "system/LowLevelSystem.h"
 #include "impl/VertexBufferOGL.h"
 #include "impl/VertexBufferVBO.h"
@@ -622,8 +622,7 @@ namespace hpl {
 
 	iGpuProgram* cLowLevelGraphicsSDL::CreateGpuProgram(const tString& asName, eGpuProgramType aType)
 	{
-		//return hplNew( cCGProgram, (asName,mCG_Context, aType) );
-        return NULL;
+		return hplNew( cGLSLProgram, (asName, aType) );
 	}
 
 	//-----------------------------------------------------------------------
